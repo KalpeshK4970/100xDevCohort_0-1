@@ -1,0 +1,63 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week5</title>
+    <script>
+        var counter = 0;
+        function onButtonPress(){
+            counter = counter + 1;
+            const elem =  document.getElementById("btn")
+            elem.innerHTML = "Counter " + counter;
+        }
+    </script>
+</head>
+<body>
+    
+    <button onclick="onButtonPress()" id="btn">Counter 0</button>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="buttonParent">
+
+    </div>
+    <script>
+        let state = {
+            count : 0
+        }
+
+        function onButtonPress(){
+            state.count++;
+            onPressButtonRender();
+        }
+
+        function onPressButtonRender(){
+            const parent = document.getElementById("buttonParent");
+            parent.innerHTML = "";
+            const btn = buttonComponent(state.count);
+            parent.appendChild(btn);
+        }
+
+        function buttonComponent(count){
+            const btn = document.createElement("button");
+            btn.innerHTML = `Count ${count}`
+            btn.setAttribute("onclick","onButtonPress()");
+            return btn;
+        }
+
+
+        onPressButtonRender();
+
+    </script>
+</body>
+</html>
